@@ -1,0 +1,45 @@
+import cv2
+import numpy as np
+
+
+if __name__ == '__main__':
+
+    gx = np.array([[-1, 0, 1],
+                   [-2, 0, 2],
+                   [-1, 0, 1]])
+
+    gy = np.array([[-1, -2, -1],
+                   [0, 0, 0],
+                   [1, 2, 1]])
+
+    sonic = cv2.imread("sonic.jpg", 0)
+    cv2.imshow("sonic", sonic)
+
+    largeSonic = np.zeros((sonic.shape[0] + 2, sonic.shape[1] + 2))
+
+
+    #largeSonic[1:-1, 1:-1, :] = sonic[:,:]
+
+    #cv2.imshow("sanic", largeSonic)
+
+
+    newSonic = sonic
+
+    for i in range(1, sonic.shape[0] -1):
+        for j in range(1, sonic.shape[1] -1):
+
+            localMat = sonic[i-1:i+2, j-1:j+2]
+
+            if (localMat.shape[0] == 3 and localMat.shape[1] == 3):
+                xMat = gx * localMat
+                yMat = gy * localMat
+                GX = xMat.sum()
+                GY = yMat.sum()
+
+                G = np.sqrt((GX * GX) + (GY * GY))
+
+                newSonic[i - 1, j - 1] = G
+
+    cv2.imshow("Sobel", newSonic)
+
+    cv2.waitKey()
