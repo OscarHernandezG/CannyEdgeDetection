@@ -10,9 +10,12 @@ if __name__ == '__main__':
 
     largeSonic = np.zeros((sonic.shape[0] + 2, sonic.shape[1] + 2))
 
-    sonic = gauss.ApplyFilter(sonic)
+    gaussSonic = gauss.ApplyFilter(sonic)
 
     sobel.ApplyFilter(sonic)
+
+    canny = cv2.Canny(sonic, 125,200)
+    cv2.imshow("Canny", canny)
 
 
     cv2.waitKey()
