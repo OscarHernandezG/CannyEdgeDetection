@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+import gaussianFilter as gauss
 
 if __name__ == '__main__':
 
@@ -17,6 +17,7 @@ if __name__ == '__main__':
 
     largeSonic = np.zeros((sonic.shape[0] + 2, sonic.shape[1] + 2))
 
+    sonic = gauss.ApplyFilter(sonic)
 
     #largeSonic[1:-1, 1:-1, :] = sonic[:,:]
 
@@ -43,3 +44,6 @@ if __name__ == '__main__':
     cv2.imshow("Sobel", newSonic)
 
     cv2.waitKey()
+    
+    
+    
