@@ -17,8 +17,8 @@ def ApplyFilter(img):
                    [1, 2, 1]])
 
 
-    for i in range(1, img.shape[1] - 1):
-        for j in range(1, img.shape[0] - 1):
+    for i in range(1, img.shape[0] - 1):
+        for j in range(1, img.shape[1] - 1):
 
             localMat = img[i - 1:i + 2, j - 1:j + 2]
 
@@ -37,7 +37,7 @@ def ApplyFilter(img):
 
 
     cv2.imshow("Sobel Filter", filtered)
-    cv2.imshow("Sobel X", gradientX)
-    cv2.imshow("Sobel Y", gradientY)
+    #cv2.imshow("Sobel X", gradientX)
+    #cv2.imshow("Sobel Y", gradientY)
 
-    return filtered
+    return filtered, gradientX, gradientY
