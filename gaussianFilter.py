@@ -40,4 +40,6 @@ def ApplyFilter(img):
 
     # Show the image
     cv2.imshow("Gauss Filter", np.uint8(filtered))
-    return np.uint8(filtered);
+
+
+    return np.uint8(filtered)
