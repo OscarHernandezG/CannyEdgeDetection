@@ -23,6 +23,7 @@ def ApplyFilter(scr, gradientX, gradientY, maxT, minT):
             elif (113 <= angle <= 158) or (-23 >= angle >= -68):
                 angleMatrix[i, j] = 135
 
+
     borderImage = filteredImage
 
     # Non-maximum Suppression
@@ -47,6 +48,7 @@ def ApplyFilter(scr, gradientX, gradientY, maxT, minT):
                 if borderImage[i + 1, j - 1] > value or borderImage[i - 1, j + 1] > value:
                     filteredImage[i, j] = 0
 
+
     # Decide max and min
     for i in range(0, rows):
         for j in range(0, cols):
@@ -56,7 +58,7 @@ def ApplyFilter(scr, gradientX, gradientY, maxT, minT):
 
             elif filteredImage[i, j] <= minT:
                 filteredImage[i, j] = 0
-                
+
 
     # Select borders
     borderImage = filteredImage
@@ -68,6 +70,9 @@ def ApplyFilter(scr, gradientX, gradientY, maxT, minT):
 
                 if localMat.max() == 255:
                     filteredImage[i, j] = 255
+
+                print("pues no")
+
 
     cv2.imshow("Canny Filter", filteredImage)
 

@@ -26,8 +26,8 @@ def ApplyFilter(img):
     ])
 
     # Create a copy with black padding
-    pRow = int(rows + 2 * kradi) -1
-    pCol = int(cols + 2 * kradi) -1
+    pRow = int(rows + 2 * kradi)
+    pCol = int(cols + 2 * kradi)
     imgpadding = np.zeros((pRow, pCol, 1))
     imgpadding[int(kradi):int(-kradi), int(kradi):int(-kradi), 0] = img
 

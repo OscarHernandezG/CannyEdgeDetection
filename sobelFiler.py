@@ -37,7 +37,7 @@ def ApplyFilter(img):
 
 
     cv2.imshow("Sobel Filter", filtered)
-    #cv2.imshow("Sobel X", gradientX)
-    #cv2.imshow("Sobel Y", gradientY)
+    cv2.imshow("Sobel X", gradientX)
+    cv2.imshow("Sobel Y", gradientY)
 
     return filtered, gradientX, gradientY
