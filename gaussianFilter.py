@@ -26,8 +26,8 @@ def ApplyFilter(img):
     ])
 
     # Create a copy with black padding
-    pRow = int(rows + 2 * kradi)
-    pCol = int(cols + 2 * kradi)
+    pRow = int(rows + 2 * kradi) - 1
+    pCol = int(cols + 2 * kradi) - 1
     imgpadding = np.zeros((pRow, pCol, 1))
     imgpadding[int(kradi):int(-kradi), int(kradi):int(-kradi), 0] = img
 
@@ -39,7 +39,7 @@ def ApplyFilter(img):
     filtered /= kernel.sum()
 
     # Show the image
-    cv2.imshow("Gauss Filter", np.uint8(filtered))
+    #cv2.imshow("Gauss Filter", np.uint8(filtered))
 
 
     return np.uint8(filtered)
